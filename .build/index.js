@@ -21,35 +21,35 @@ async function main() {
   const FILE = await import_promises.default.readFile("./aula-01.txt", { encoding: "utf-8" });
   const fileWithLines = FILE.split("\n");
   const [numOps, ...file] = fileWithLines;
-  const divider = (list, quantity) => list.reduce((resultArray, item, index) => {
+  const divider = (list, quantity) => list.reduce((accumulator, item, index) => {
     const chunkIndex = Math.floor(index / quantity);
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
+    if (!accumulator[chunkIndex]) {
+      accumulator[chunkIndex] = [];
     }
-    resultArray[chunkIndex].push(item);
-    return resultArray;
+    accumulator[chunkIndex].push(item);
+    return accumulator;
   }, []);
   const divided = divider(file, 3);
   const getUniqueItems = (conj1, conj2) => [...new Set(`${conj1},${conj2}`.split(","))];
+  const getUnique = (conj) => [...new Set(conj.split(","))];
   const union = (conj1, conj2) => getUniqueItems(conj1, conj2).join(",");
   const intersection = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => conj1.includes(item) && conj2.includes(item)).join(",");
   const difference = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => !conj2.includes(item)).join(",");
-  const getUnique = (conj) => [...new Set(conj.split(","))];
   const cartesianProduct = (conj1, conj2) => getUnique(conj1).map((item1) => getUnique(conj2).map((item2) => `${item1},${item2}`));
-  const format = (conj1, conj2) => (operation, result) => `${operation}: conjunto 1 {${conj1}}, conjunto 2 {${conj2}}. Resultado: {${result}} 
-`;
+  const format = (conj1, conj2) => (operation, result) => console.log(`${operation}: conjunto 1 {${conj1}}, conjunto 2 {${conj2}}. Resultado: {${result}} 
+`);
   Array.from(Array(Number(numOps)).keys()).map((item) => {
     const [op, conj1, conj2] = divided[item];
-    const _f = format(conj1, conj2);
+    const logger = format(conj1, conj2);
     switch (op) {
       case "U":
-        return console.log(_f("Uni\xE3o", union(conj1, conj2)));
+        return logger("Uni\xE3o", union(conj1, conj2));
       case "I":
-        return console.log(_f("Interce\xE7\xE3o", intersection(conj1, conj2)));
+        return logger("Interce\xE7\xE3o", intersection(conj1, conj2));
       case "D":
-        return console.log(_f("Diferen\xE7a", difference(conj1, conj2)));
+        return logger("Diferen\xE7a", difference(conj1, conj2));
       case "C":
-        return console.log(_f("Produto Cartesiano", JSON.stringify(cartesianProduct(conj1, conj2))));
+        return logger("Produto Cartesiano", JSON.stringify(cartesianProduct(conj1, conj2)));
     }
   });
 }
