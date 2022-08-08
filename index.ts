@@ -41,15 +41,16 @@ const difference: Difference =
       .filter(item => !conj2.includes(item))
       .join(",");
 
-type CartesianProduct = (conj1: string, conj2: string) => string[][];
+type CartesianProduct = (conj1: string, conj2: string) => string;
 const cartesianProduct: CartesianProduct =
   (conj1, conj2) =>
     getUnique(conj1)
-      .map(item1 => getUnique(conj2)
-        .map(item2 => `${item1},${item2}`));
+      .map(item1 => getUnique(conj2).map(item2 => `[${item1},${item2}]`))
+      .reduce((accumulator, item) => [...accumulator, ...item], [])
+      .join(",");
 
-type Format = 
-  (conj1: string, conj2: string) => 
+type Format =
+  (conj1: string, conj2: string) =>
     (operation: string, result: string) => void;
 
 const format: Format =
@@ -59,9 +60,9 @@ const format: Format =
 
 async function main() {
   const FILE = await fs.readFile('./aula-01.txt', {encoding: 'utf-8'});
-  
+
   const [numOps, ...file] = FILE.split("\n");
-  
+
   const divided = divider(file, 3);
   Array.from(Array(Number(numOps)).keys()).map((item) => {
     const [op, conj1, conj2] = divided[item];
@@ -77,7 +78,7 @@ async function main() {
         return logger('Diferença', difference(conj1, conj2));
 
       case "C":
-        return logger('Produto Cartesiano', JSON.stringify(cartesianProduct(conj1, conj2)));
+        return logger('Produto Cartesiano', cartesianProduct(conj1, conj2));
     }
   })
 }
