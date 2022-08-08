@@ -15,8 +15,8 @@ const divider: Divider =
     }, []);
 
 type RemoveDuplicates = (list: any[]) => any[];;
-const removeDuplicates: RemoveDuplicates = (list: any[]) => 
-     list.reduce((acc: any, d) => acc.includes(d) ? acc : acc.concat(d), []);
+const removeDuplicates: RemoveDuplicates = (list: any[]) =>
+  list.reduce((acc: any, d) => acc.includes(d) ? acc : acc.concat(d), []);
 
 
 type GetUniqueItems = (conj1: string, conj2: string) => string[];
@@ -54,9 +54,11 @@ const cartesianProduct: CartesianProduct =
       .reduce((accumulator, item) => [...accumulator, ...item], [])
       .join(",");
 
+type Logger =
+  (operation: string, result: string) => void;
+
 type Format =
-  (conj1: string, conj2: string) =>
-    (operation: string, result: string) => void;
+  (conj1: string, conj2: string) => Logger;
 
 const format: Format =
   (conj1: string, conj2: string) =>
@@ -64,7 +66,7 @@ const format: Format =
       console.log(`${operation}: conjunto 1 {${conj1}}, conjunto 2 {${conj2}}. Resultado: {${result}} \n`);
 
 async function main() {
-  const FILE = await fs.readFile('./aula-01.txt', {encoding: 'utf-8'});
+  const FILE = await fs.readFile('./aula-01.txt', { encoding: 'utf-8' });
 
   const [numOps, ...file] = FILE.split("\n");
 
