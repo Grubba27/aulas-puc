@@ -25,8 +25,10 @@ const divider = (list, quantity) => list.reduce((accumulator, item, index) => {
   accumulator[chunkIndex].push(item);
   return accumulator;
 }, []);
-const getUniqueItems = (conj1, conj2) => [...new Set(`${conj1},${conj2}`.split(","))];
-const getUnique = (conj) => [...new Set(conj.split(","))];
+;
+const removeDuplicates = (list) => list.reduce((acc, d) => acc.includes(d) ? acc : acc.concat(d), []);
+const getUniqueItems = (conj1, conj2) => [...removeDuplicates(`${conj1},${conj2}`.split(","))];
+const getUnique = (conj) => [...removeDuplicates(conj.split(","))];
 const union = (conj1, conj2) => getUniqueItems(conj1, conj2).join(",");
 const intersection = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => conj1.includes(item) && conj2.includes(item)).join(",");
 const difference = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => !conj2.includes(item)).join(",");

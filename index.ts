@@ -14,14 +14,19 @@ const divider: Divider =
       return accumulator
     }, []);
 
+type RemoveDuplicates = (list: any[]) => any[];;
+const removeDuplicates: RemoveDuplicates = (list: any[]) => 
+     list.reduce((acc: any, d) => acc.includes(d) ? acc : acc.concat(d), []);
+
+
 type GetUniqueItems = (conj1: string, conj2: string) => string[];
 const getUniqueItems: GetUniqueItems =
   (conj1, conj2) =>
-    [...new Set(`${conj1},${conj2}`.split(","))]
+    [...removeDuplicates(`${conj1},${conj2}`.split(","))]
 
 type GetUnique = (conj: string) => string[];
 const getUnique: GetUnique =
-  (conj) => [...new Set(conj.split(","))]
+  (conj) => [...removeDuplicates(conj.split(","))]
 
 type Union = (conj1: string, conj2: string) => string;
 const union: Union =
