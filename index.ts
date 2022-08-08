@@ -46,9 +46,13 @@ const cartesianProduct: CartesianProduct =
   (conj1, conj2) =>
     getUnique(conj1)
       .map(item1 => getUnique(conj2)
-        .map(item2 => `${item1},${item2}`))
+        .map(item2 => `${item1},${item2}`));
 
-const format =
+type Format = 
+  (conj1: string, conj2: string) => 
+    (operation: string, result: string) => void;
+
+const format: Format =
   (conj1: string, conj2: string) =>
     (operation: string, result: string) =>
       console.log(`${operation}: conjunto 1 {${conj1}}, conjunto 2 {${conj2}}. Resultado: {${result}} \n`);
