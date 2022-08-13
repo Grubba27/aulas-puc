@@ -32,7 +32,7 @@ const getUnique = (conj) => [...removeDuplicates(conj.split(","))];
 const union = (conj1, conj2) => getUniqueItems(conj1, conj2).join(",");
 const intersection = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => conj1.includes(item) && conj2.includes(item)).join(",");
 const difference = (conj1, conj2) => getUniqueItems(conj1, conj2).filter((item) => !conj2.includes(item)).join(",");
-const cartesianProduct = (conj1, conj2) => getUnique(conj1).map((item1) => getUnique(conj2).map((item2) => `[${item1},${item2}]`)).reduce((accumulator, item) => [...accumulator, ...item], []).join(",");
+const cartesianProduct = (conj1, conj2) => getUnique(conj1).map((item1) => getUnique(conj2).map((item2) => `(${item1},${item2})`)).reduce((accumulator, item) => [...accumulator, ...item], []).join(",");
 const format = (conj1, conj2) => (operation, result) => console.log(`${operation}: conjunto 1 {${conj1}}, conjunto 2 {${conj2}}. Resultado: {${result}} 
 `);
 async function main() {
