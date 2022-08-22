@@ -1,27 +1,13 @@
-compile = "./.config/build.sh"
-run = "node --enable-source-maps .build/index.js"
-entrypoint = "index.ts"
+compile = ["pdflatex", "-halt-on-error", "main.tex"]
+run = ["sh", "runner.sh"]
 
-[languages.typescript]
-pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
-syntax = "typescript"
+hidden = ["*.aux", "*.log", "index.html", "runner.sh", "nohup.out"]
 
-[languages.typescript.languageServer]
-start = [ "typescript-language-server", "--stdio" ]
+[languages.latex]
+pattern = "**/*.tex"
 
-[packager]
-language = "nodejs"
-
-[packager.features]
-enabledForHosting = false
-packageSearch = true
-guessImports = true
-
-[env]
-XDG_CONFIG_HOME = "/home/runner/.config"
+[languages.latex.languageServer]
+start = "texlab"
 
 [nix]
 channel = "stable-21_11"
-
-[gitHubImport]
-requiredFiles = [".replit", "replit.nix", ".config"]

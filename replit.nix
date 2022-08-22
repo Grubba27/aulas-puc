@@ -1,10 +1,7 @@
 { pkgs }: {
     deps = [
-        pkgs.yarn
-        pkgs.esbuild
-        pkgs.nodejs-16_x
-
-        pkgs.nodePackages.typescript
-        pkgs.nodePackages.typescript-language-server
+        pkgs.texlive.combined.scheme-full
+			  pkgs.httplz
+				pkgs.texlab
     ];
 }

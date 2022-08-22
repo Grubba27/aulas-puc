@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+\section*{TRABALHO 2 - ANÁLISE COMBINATÓRIA.}
+\section*{Aluno: Gabriel Novaes Azevedo Grubba.}
+\section*{Curso: Ciência da computação.}
+\section{Trabalho feito em LaTeX.}
+\section{
+  Um restaurante prepara 4 pratos quentes (frango, peixe, carne assada, salsichão),2 saladas (verde  e  russa)  e  3  sobremesas  (sorvete,  romeu  e  julieta,  frutas).
+  De  quantas  maneiras diferentes  um  cliente
+  pode  se  servir  consumindo  um  prato  quente,
+  uma  salada  e  uma sobremesa?}
+\section*{Resposta:
+  \begin{equation}
+	  4\times2\times3=24
+  \end{equation}
+  Serão: 4 pratos quentes . 2 saladas . 3 Sobremesas = 24 maneiras
+ }
+
+\section{
+  Se o restaurante do exemplo anterior oferecesse dois preços diferentes, sendo mais baratas
+  as opções que incluíssem frango ou salsichão com salada verde, de quantas maneiras você
+  poderia se alimentar pagando menos?}
+\section*{Resposta:
+  \begin{equation}
+	  2\times2\times3=12
+  \end{equation}
+  Serão: 2 pratos quentes . 1 saladas . 3 Sobremesas = 6 maneiras
+ }
+
+\section{Quantos números naturais de 3 algarismos distintos existem?}
+\section*{Resposta:
+  \begin{equation}
+	  9\times9\times8=648
+  \end{equation}
+  Será: 9 das centenas . 9 das dezenas . 8 das únidades = 648 números naturais de 3 algarismos distintos
+ }
+
+\section{A  partir do resultado do exercício 4, se desejássemos contar dentre os números possíveis 
+de  3  algarismos  distintos  apenas  os  que  são  pares  (terminados  em  0,  2,  4,  6  e  8),  como 
+deveríamos proceder? }
+\section*{Resposta:
+  \begin{equation}
+   A + B + C + D = 324
+  \end{equation}
+\linebreak
+• Onde A é o caso: ($4\times4\times3=48$)
+\linebreak
+• Onde B é o caso: ($4\times5\times4=80$)
+\linebreak
+• Onde C é o caso: ($5\times4\times5=100$)
+\linebreak
+• Onde D é o caso: ($5\times5\times4=100 $)
+\linebreak
+}
+
+
+\section{As  novas  placas  do  padrão  Mercosul  para  automóveis  obrigatórias  no  país  desde  o  dia 
+31/01/2020, 160 %mais combinações que o modelo anterior. No caso do Brasil e Argentina, 
+serão quatro letras e três algarismos, ampliando a possibilidade de combinações diferentes.
+Quantas combinações serão possíveis? }
+\section*{• As placas seguem a seguinte especificação: LLLNLNN 
+• Onde L = letra do alfabeto e N = números de 0 até 9 }
+\section*{Resposta:
+  \begin{equation}
+	  (26^4)\times(10^3)=456976000
+  \end{equation}
+  São 4 letras do alfabeto podendo se repetir ou seja 26 elevado a 4 . 3 números de 0 até 9 gerando 10 elevado à 3 = 456976000 }
+
+
+\section{
+Suponha  que  os  quatro  últimos  dígitos  de  um  número  de  telefone  têm  que  incluir  pelo 
+menos um dígito repetido. Quantos desses números existem?  }
+\section*{Resposta:
+  \begin{equation}
+  (10^4)-(10\times9\times8\times7)=4960
+  \end{equation}
+Onde a primeira parte é as possiblidades de 4 digitos e a segunda todos os números únicos de quatro dígitos
+}
+
+\section{ Quantos endereços IPv4 diferentes existem? }
+\section*{Resposta: onde IPv4 aceita apenas binario de 32 bits o que gera a equação: ($ 2^{32} = 4294967296 $). Ou seja existem 4294967296 endereços
+}
+
+\section{
+Uma  senha  de  usuário  para  acessar  um  sistema  computacional  consiste  em  três  letras 
+seguidas de dois dígitos. Quantas senhas diferentes existem?}
+
+\section*{Resposta: 
+  \begin{equation}
+    (26^3)\times(10^2)=1757600
+  \end{equation}
+sendo cada sequencia um subconjunto de cada.
+}
+
+\section{
+No sistema computacional do Exercício 9, quantas senhas existem se for possível distinguir 
+entre letras maiúsculas e minúsculas? }
+
+\section*{Resposta: 
+  \begin{equation}
+    (52^3)\times(10^2)=14060800
+  \end{equation}
+sendo cada sequencia um subconjunto de cada. Como diferenciamos maiúsculas e minúsculas se torna ($26\times2 = 52$)
+}
+
+\section{
+Uma conferência telefônica está acontecendo de Metrópole para a Vila dos Privilégios, via 
+Vale do Trevo. Existem 45 troncos telefônicos de Metrópole para o Vale do Trevo e 13 do 
+Vale  do  Trevo  para  a  Vila  dos Privilégios. De quantas  maneiras  diferentes  é  possível  fazer 
+essa ligação?  }
+
+\section*{Resposta: 
+  \begin{equation}
+    (45)\times(13)=585
+  \end{equation}
+Para que chegue na Vila dos Privilégios é preciso passar da Metróple até o Vale do Trevo (45) e depois até o destino final (13)
+}
+
+\section{
+A, B, C e D são nós em uma rede de computadores. Existem dois caminhos entre A e C, dois 
+entre  B  e  D,  três  entre  A  e  B  e  quatro  entre  C  e  D.  Por  quantas  rotas  diferentes  pode-se 
+mandar uma mensagem de A para D?   }
+
+\section*{Resposta: 
+  \begin{equation}
+    (3 \times 2) + (2 \times 4) = 14
+  \end{equation}
+Sendo ($3\times2$) as opções de A por B e ($2\times4$) as opções de A por C e o resultado a somatoria dessas opções.
+}
+
+
+\section{Quantos números de CPF são possíveis? }
+
+\section*{Resposta: 
+ \linebreak
+• Se for todo CPF sem averiguar que está valido ou seja um número de 11 dígitos: ($10^{11}=100000000000$)
+\linebreak
+• Se for todo CPF considerando apenas os CPF validos: ($10^9 - 10 = 999999990$)
+}
+
+
+\section{Um  prédio  comprou  um  novo  sistema  de  fechaduras  para  seus  175  apartamentos.  Uma 
+fechadura é aberta digitando se um código de dois algarismos. O síndico do edifício fez uma 
+compra inteligente?  }
+
+\section*{Resposta: 
+Não. Pois irá haver moradores com a mesma senha. Também existirá  por existir poucas combinações ($10^{2}=100$) também será de fácil descoberta a senha via força bruta 
+}
+
+
+\section{Um palíndromo é uma cadeia de caracteres que é lida da mesma forma normalmente ou de 
+trás para a frente. Quantos palíndromos de cinco letras são possíveis? (Use o alfabeto de 26 
+letras.) }
+
+\section*{Resposta: 
+  \begin{equation}
+    26^3=17576
+  \end{equation}
+\linebreak
+• Considerando que palavras compostas de uma única letra podem ser palíndromos
+\linebreak
+• ($26^3$) se deve á usarmos 26 letras até o terceiro da palavra
+}
+
+\section*{Refêrencias:}
+\section*{QUANTOS números de três algarismos distintos existem?. [S.I]: Professora Py Matemática, 2020. Son., color. Disponível em: \url{https://www.youtube.com/watch?v=rypdHMRVb9k}. Acesso em: 21 ago. 2022.}
+\section*{ALCANTARA, Frank Coelho de. ANÁLISE COMBINATÓRIA PRIMEIRA PARTE. Curitiba: PUC-PR, 2022. 28 slides, color. Disponível em: \url{https://pucpr.instructure.com/courses/16138/files?preview=826238}. Acesso em: 21 ago. 2022.}
+
+
+\end{document}
